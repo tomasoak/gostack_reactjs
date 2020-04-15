@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from './services/api';
 
 import "./styles.css";
 
 function App() {
-  async function handleAddRepository() {
-    // TODO
-  }
+    const [repositories, setRepositories] = useState([]);
 
+    useEffect(() => {
+      api.get('repositories').then(response => {
+        setRepositories(response.data)
+      });
+    }, []);
+
+    async function handleAddRepository() {
+      const response = await api.post('repositores', {
+        title: `Novo repositório ${Date.now()}`,
+        owner: "Tomás Oak Projects",
+        techs: "Node.js, ReactJS, ",
+      });
+    
+    const repository = response.data;
+
+    setRepositories([...repositories, repository]);
+  }
+  
   async function handleRemoveRepository(id) {
     // TODO
   }
