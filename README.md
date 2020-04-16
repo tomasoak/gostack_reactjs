@@ -7,11 +7,8 @@
 📤**Remover um repositório da sua API**: Para cada item da lista, possui um botão com o texto Remover que, ao clicar, chama uma função para remover esse item da lista do frontend e da API.
 
 ## Específicação dos testes ##
-Em cada teste, tem uma breve descrição no que sua aplicação deve cumprir para que o teste passe.
 
-Caso você tenha dúvidas quanto ao que são os testes, e como interpretá-los, dê uma olhada em nosso FAQ.
-
-Para esse desafio temos os seguintes testes:
+Este desafio possui os seguintes testes:
 
 **should be able to add new repository**: Para que esse teste passe, sua aplicação deve permitir que um repositório seja adicionado ao seu backend e listado no seu frontend dentro de uma LI.
 
