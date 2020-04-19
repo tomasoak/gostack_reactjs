@@ -13,9 +13,9 @@ function App() {
     }, []);
 
     async function handleAddRepository() {
-      const response = await api.post('repositores', {
+      const response = await api.post('repositories', {
         title: `Novo repositório ${Date.now()}`,
-        owner: "Tomás Oak Projects",
+        url: "github.com/tomasoak",
         techs: "Node.js, ReactJS, ",
       });
     
@@ -25,7 +25,15 @@ function App() {
   }
 
   async function handleRemoveRepository(id) {
-    // TODO
+    const repositoryIndex = repositories.findIndex(repository => repository.id === id)
+
+    //repositories.splice(repositoryIndex, 1)
+
+    const response = await api.delete('repositories/:id', {
+      where: { repositoryIndex }
+    });
+
+    //setRepositories([...repositories])
   }
 
   return (
